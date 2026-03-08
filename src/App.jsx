@@ -14,7 +14,7 @@ function App() {
       try {
         setLoading(true);
         // Add a timestamp to avoid caching issues with local JSON
-        const response = await fetch(`/career_data.json?v=${new Date().getTime()}`);
+        const response = await fetch(`${import.meta.env.BASE_URL}career_data.json?v=${new Date().getTime()}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -59,7 +59,6 @@ function App() {
     <div className="app-container">
       <header className="animate-fade-in">
         <h1>B通算得点の推移</h1>
-        <p>Bリーグの通算得点の推移を洗練されたグラフで可視化</p>
       </header>
 
       <main className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
